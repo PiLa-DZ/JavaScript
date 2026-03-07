@@ -1,11 +1,11 @@
-V8 is single-threaded. 
-    The Call Stack (LIFO):
-    The Heap:
+V8
+    Call-Stack
+    Heap
 
-    Node APIs: 
-    The Callback Queue (Task Queue): 
-
-The Event Loop
+API 
+Libuv
+Event-Loop
+Task-Queue
 
 ### ============================================================
 1. The V8 Engine Components (The "CPU" of JS)
