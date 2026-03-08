@@ -1,20 +1,20 @@
 ```js
 // ============================================================
-// JS ARCHITECTURE: THE EVENT LOOP (THE HEARTBEAT)
+// JS ARCHITECTURE: THE 6 PHASES (THE HEARTBEAT)
 // ============================================================
-// 1. ROLE: A continuous loop in Libuv that coordinates
-//    V8 (Execution) and the OS (I/O).
-// 2. PHASES: Timers -> I/O -> Poll -> Check -> Close.
-// 3. POLL PHASE: Where Node waits for new events. This is
-//    why Node is "Event-Driven."
-// 4. MICROTASKS: Promises and process.nextTick() have
-//    priority and run between phases.
-// 5. THE GOLDEN RULE: "Don't Block the Loop." If V8 is
-//    doing heavy math, the loop can't move to the next
-//    phase, and your server stops responding to I/O.
+// [1] TIMERS:   Expired setTimeout/setInterval.
+// [2] PENDING:  Specific system I/O errors.
+// [3] IDLE:     Internal engine prep.
+// [4] POLL:     Wait for new I/O (The "Waiting" Room).
+// [5] CHECK:    setImmediate() callbacks.
+// [6] CLOSE:    Socket/Handle cleanup.
+// ------------------------------------------------------------
+// VIP Lane
+// [!] MICROTASKS: Run BETWEEN every single phase above.
+//     - nextTick() -> Absolute priority.
+//     - Promises   -> Secondary priority.
 // ============================================================
 ```
-
 ### ============================================================
 1. The "Infinite" Loop
 
@@ -91,3 +91,22 @@ These are called Microtasks.
 - 5. V8 executes the JS. Once finished, the stack is empty again.
 
 - 6. The loop moves to the Check Phase.
+
+### ============================================================
+### Best Practices for Working with the Event Loop
+
+- Use Asynchronous Operations:  
+    Avoid blocking the event loop with synchronous file reads or complex calculations.
+
+- Optimize Long-Running Tasks:                    
+    Use worker threads or child processes for CPU-intensive tasks.
+
+- Use Microtasks Wisely:                           
+    Since microtasks execute before other queued tasks, excessive usage can delay other operations.
+
+- Leverage setImmediate() for High-Priority Tasks: 
+    Unlike setTimeout(fn, 0), setImmediate() executes immediately after the I/O phase.
+
+- Debug Using Performance Tools:                   
+    Utilize Node.js Performance Hooks and the Chrome DevTools profiler to monitor the event loop behavior.
+

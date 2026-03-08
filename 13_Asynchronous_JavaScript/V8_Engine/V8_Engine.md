@@ -8,6 +8,9 @@ Event-Loop
 Task-Queue
 
 ### ============================================================
+// Problems
+Memory Leak
+### ============================================================
 1. The V8 Engine Components (The "CPU" of JS)
 
 V8 is single-threaded. 
