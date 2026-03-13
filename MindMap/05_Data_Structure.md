@@ -1,3 +1,5 @@
+*** Data Structure ***
+
 Array --> is a global object used to store a collection of items.
 1. Dynamic      
 2. Heterogeneous

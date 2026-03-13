@@ -1,3 +1,5 @@
+*** Data Types ***
+
 Primitive (string, number, boolean, undefined, null, bigint, symbol)
 Object (Object, RegExp, Number, BigInt, Math, Date, String, Error, Function, Boolean)
 Prototype
