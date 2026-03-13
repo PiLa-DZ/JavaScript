@@ -27,7 +27,10 @@ but they are not initialized with a value.
 They enter what is called the Temporal Dead Zone (TDZ).
 
 3. Function Hoisting (The "Magic" Part)
-Function declarations are hoisted entirely—both the name and the actual body of the function. This allows you to call a function before you've even written it in your file.
+Function declarations are hoisted entirely—both 
+the name and the actual body of the function. 
+This allows you to call a function before 
+you've even written it in your file.
 ```TS
 greet(); // Works perfectly!
 
@@ -35,7 +38,8 @@ function greet() {
   console.log("Hello from the bottom of the file!");
 }
 ```
-- Warning: This does not work for function expressions (assigning a function to a variable).
+- Warning: This does not work for function expressions 
+(assigning a function to a variable).
 ```TS
 runTmux(); // TypeError: runTmux is not a function (it is currently undefined)
 

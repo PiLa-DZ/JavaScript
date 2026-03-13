@@ -43,7 +43,8 @@ console.log(uniqueArray); // [1, 2, 3, 4, 5]
 ```
 
 ### 4. Iterating over a Set
-Since Sets are iterable, you can loop through them just like you do with Maps or Arrays.
+Since Sets are iterable, 
+you can loop through them just like you do with Maps or Arrays.
 ```js
 const tags = new Set(["javascript", "linux", "coding"]);
 
