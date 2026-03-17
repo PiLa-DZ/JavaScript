@@ -11,11 +11,13 @@
 ```
 
 ### ============================================================
+
 1. What is it?
-The arguments object is a local variable 
-available within all functions (except arrow functions). 
-It contains an entry for each argument passed to the function, 
-indexed starting at 0.
+   The arguments object is a local variable
+   available within all functions (except arrow functions).
+   It contains an entry for each argument passed to the function,
+   indexed starting at 0.
+
 ```js
 function listPackages() {
   console.log(arguments[0]); // "pacman"
@@ -27,25 +29,31 @@ listPackages("pacman", "neovim");
 ```
 
 ### ============================================================
-2. ⚠️ The "Array-Like" Trap
-The arguments object is Array-like, 
-but it is NOT an actual Array.
+
+1. ⚠️ The "Array-Like" Trap
+   The arguments object is Array-like,
+   but it is NOT an actual Array.
+
 - It has: A .length property and indexed access (e.g., arguments[0]).
 - It lacks: Array methods like .map(), .forEach(), .filter(), or .pop().
-If you want to use array methods on it, you have to convert it first:
+  If you want to use array methods on it, you have to convert it first:
+
 ```js
 function myFunc() {
   const argsArray = Array.from(arguments); // Convert to real array
-  argsArray.forEach(arg => console.log(arg));
+  argsArray.forEach((arg) => console.log(arg));
 }
 ```
+
 ### ============================================================
-3. Arrow Functions: The Exception
-remember this: 
-    Arrow functions do not have an arguments object. 
-    If you try to use it inside an arrow function, 
-    it will either throw an error 
-    or refer to the arguments of a surrounding regular function.
+
+1. Arrow Functions: The Exception
+   remember this:
+   Arrow functions do not have an arguments object.
+   If you try to use it inside an arrow function,
+   it will either throw an error
+   or refer to the arguments of a surrounding regular function.
+
 ```js
 const myArrow = () => {
   console.log(arguments); // ❌ ReferenceError (usually)
@@ -53,9 +61,11 @@ const myArrow = () => {
 ```
 
 ### ============================================================
-4. arguments vs. Rest Parameters (...args)
-In modern Node.js development, 
-we almost always prefer Rest Parameters over the arguments object.
+
+1. arguments vs. Rest Parameters (...args)
+   In modern Node.js development,
+   we almost always prefer Rest Parameters over the arguments object.
+
 ```js
 /*
 =================================================================================
@@ -68,4 +78,3 @@ we almost always prefer Rest Parameters over the arguments object.
 =================================================================================
 */
 ```
-

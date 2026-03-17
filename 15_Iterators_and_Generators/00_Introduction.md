@@ -1,19 +1,21 @@
-*** Iterators and Generators ***
+**_ Iterators and Generators _**
 
 ### ============================================================
+
 1. What is an Iterator?
 
-An Iterator is an object that knows how to access items 
-from a collection one at a time. 
+An Iterator is an object that knows how to access items
+from a collection one at a time.
 It keeps track of its current position.
 
-In JavaScript, 
-any object that has a next() method returning 
+In JavaScript,
+any object that has a next() method returning
 an object with value and done properties is an iterator.
 
 The "Manual" Iterator Logic:
+
 ```js
-const myItems = ['Kernel', 'Shell', 'User'];
+const myItems = ["Kernel", "Shell", "User"];
 const iterator = myItems[Symbol.iterator]();
 
 console.log(iterator.next()); // { value: 'Kernel', done: false }
@@ -23,14 +25,16 @@ console.log(iterator.next()); // { value: undefined, done: true }
 ```
 
 ### ============================================================
-2. What is a Generator?
+
+1. What is a Generator?
 
 A Generator is a special type of function that can be paused and resumed.
 
-it does some work, "yields" a result, 
+it does some work, "yields" a result,
 and waits for you to tell it to continue.
 
-The Syntax: function* and yield
+The Syntax: function\* and yield
+
 ```js
 function* softwareInstaller() {
   console.log("Downloading...");
@@ -51,7 +55,9 @@ console.log(installProcess.next().value); // "Extraction Complete"
 ```
 
 ### ============================================================
-3. Why Use Them? (The "Arch" Efficiency)
+
+1. Why Use Them? (The "Arch" Efficiency)
+
 ```js
 /*
 ================================================================================
@@ -70,17 +76,18 @@ console.log(installProcess.next().value); // "Extraction Complete"
 ```
 
 ### ============================================================
-4. Connecting to your Class Knowledge
 
-You can actually make your Classes "Iterable" 
-so they work with for...of loops. 
-Imagine your IPhone factory class has an inventory, 
+1. Connecting to your Class Knowledge
+
+You can actually make your Classes "Iterable"
+so they work with for...of loops.
+Imagine your IPhone factory class has an inventory,
 and you want to loop through it.
 
 ```js
 class Warehouse {
   constructor() {
-    this.inventory = ['iPhone 14', 'iPhone 15', 'iPhone 16'];
+    this.inventory = ["iPhone 14", "iPhone 15", "iPhone 16"];
   }
 
   // Making the class iterable
@@ -99,18 +106,19 @@ for (let phone of myStorage) {
 ```
 
 ### ============================================================
+
 Summary
 
-Iterator: 
-    The protocol for moving through data (the next() method).
+Iterator:
+The protocol for moving through data (the next() method).
 
-Generator (*): 
-    A factory for iterators. It uses yield to pause execution.
+Generator (\*):
+A factory for iterators. It uses yield to pause execution.
 
-Lazy Evaluation: 
-    Data is only generated/calculated when you actually ask for it.
+Lazy Evaluation:
+Data is only generated/calculated when you actually ask for it.
 
-The Rule: 
-    Use Generators when you have a sequence of steps 
-    or a large dataset that you don't 
-    want to store in memory all at once.
+The Rule:
+Use Generators when you have a sequence of steps
+or a large dataset that you don't
+want to store in memory all at once.

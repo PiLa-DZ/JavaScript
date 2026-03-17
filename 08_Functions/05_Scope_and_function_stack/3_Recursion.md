@@ -10,19 +10,21 @@
 ```
 
 ### ============================================================
-1. The Two Golden Rules
-To prevent a "Stack Overflow" 
-(filling up your RAM with infinite function calls), 
-every recursive function must have two parts:
 
-    The Base Case: 
-        The condition that stops the recursion (the "Exit" strategy).
-    The Recursive Step: 
-        The part where the function calls itself 
-        with a different (usually smaller) input.
+1. The Two Golden Rules
+    To prevent a "Stack Overflow"
+    (filling up your RAM with infinite function calls),
+    every recursive function must have two parts:
+
+        The Base Case:
+            The condition that stops the recursion (the "Exit" strategy).
+        The Recursive Step:
+            The part where the function calls itself
+            with a different (usually smaller) input.
 
 Example: Calculating Factorials ($n!$)
-5! = 5 * 4 * 3 * 2 * 1 = 120
+5! = 5 _4_ 3 _2_ 1 = 120
+
 ```js
 function factorial(n) {
   // 1. Base Case: stop at 1
@@ -34,4 +36,3 @@ function factorial(n) {
 
 console.log(factorial(5)); // 120
 ```
-

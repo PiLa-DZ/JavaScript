@@ -1,37 +1,45 @@
 ### ============================================================
+
 Step 1: Activation (How to turn it on)
 
 ### --------------------------------------------------------
+
 A. The Directive
 You invoke it by adding this exact string to the very top of your file or function:
+
 ```js
 "use strict";
 ```
 
 ### --------------------------------------------------------
+
 B. Global Scope vs. Function Scope
 You can be strict for the whole file, or just for one specific function.
+
 ```js
 // --- File: index.js ---
 "use strict"; // Entire file is now in Strict Mode
 
 function archUpdate() {
-    // strict rules apply here
+  // strict rules apply here
 }
 ```
+
 OR
+
 ```js
 function legacyCode() {
-    // Normal, "sloppy" mode here
+  // Normal, "sloppy" mode here
 }
 
 function modernCode() {
-    "use strict"; 
-    // Only this function is strict
+  "use strict";
+  // Only this function is strict
 }
 ```
 
 ### ============================================================
+
 Important Note for your Wiki (The Node.js Factor)
 Since you are a Node.js and TypeScript developer:
 
